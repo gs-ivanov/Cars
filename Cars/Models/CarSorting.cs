@@ -1,4 +1,4 @@
-﻿namespace Cars.Models.Cars
+﻿namespace Cars.Models
 {
     public enum CarSorting
     {

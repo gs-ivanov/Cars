@@ -3,6 +3,7 @@
     using Cars.Data;
     using Cars.Data.Models;
     using Cars.Infrastructure;
+    using Cars.Models;
     using Cars.Models.Cars;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
