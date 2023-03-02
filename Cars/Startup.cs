@@ -20,7 +20,7 @@ namespace Wolf
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<CarsRentDbContext>(options => options
+                .AddDbContext<CarRentDbContext>(options => options
                 .UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
@@ -33,7 +33,7 @@ namespace Wolf
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
-                .AddEntityFrameworkStores<CarsRentDbContext>();
+                .AddEntityFrameworkStores<CarRentDbContext>();
 
             services
                .AddControllersWithViews();

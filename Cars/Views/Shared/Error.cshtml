@@ -1,6 +1,20 @@
 ﻿@model ErrorViewModel
 @{
-    ViewData["Title"] = "Error";
+    ViewBag.Title = "Error";
+}
+
+<a href="#" onclick="f(1)">Hi!</a>
+
+@section Scripts{
+    <script>
+        function f(b) {
+            let c = Date.now(5);
+            let a = 3+b+c;
+
+        console.log("True - taka deeeeee "+a);
+        }
+
+    </script>
 }
 
 <h1 class="text-danger">Error.</h1>
