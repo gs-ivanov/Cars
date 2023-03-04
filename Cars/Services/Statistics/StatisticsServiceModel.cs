@@ -1,6 +1,6 @@
-﻿namespace Cars.Models.Api
+﻿namespace Cars.Services.Statistics
 {
-    public class StatisticsResponseModel
+    public class StatisticsServiceModel
     {
         public int TotalCars { get; init; }
 

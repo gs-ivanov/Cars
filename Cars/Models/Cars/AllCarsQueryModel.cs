@@ -2,6 +2,8 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using global::Cars.Services.Tracs;
+
     public class AllCarsQueryModel
     {
         public static int CarsPerPage = 3;
@@ -19,6 +21,6 @@
 
         public IEnumerable<string> Brands { get; set; }
 
-        public IEnumerable<CarListingViewModel> Cars { get; set; }
+        public IEnumerable<CarServiceModel> Cars { get; set; }
     }
 }

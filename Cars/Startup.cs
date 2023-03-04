@@ -9,6 +9,8 @@ namespace Wolf
     using Microsoft.Extensions.Hosting;
     using Cars.Data;
     using Cars.Infrastructure;
+    using Cars.Services.Statistics;
+    using Cars.Services.Tracs;
 
     public class Startup
     {
@@ -37,6 +39,9 @@ namespace Wolf
 
             services
                .AddControllersWithViews();
+
+            services.AddTransient<IStatisticsService, StatisticsService>();
+            services.AddTransient<ICarService, CarService>();
 
         }
 

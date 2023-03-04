@@ -1,6 +1,6 @@
-﻿namespace Cars.Models.Api.Cars
+﻿namespace Cars.Services.Tracs
 {
-    public class CarResponseModel
+    public class CarServiceModel
     {
         public int Id { get; init; }
 
@@ -13,6 +13,5 @@
         public int Year { get; init; }
 
         public string Category { get; init; }
-
     }
 }

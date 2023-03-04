@@ -7,13 +7,10 @@
 
     public class AddCarFormModel
     {
-        public int Id { get; init; }
-
         [Required]
         [StringLength(BrandMaxLength,
             MinimumLength = BrandMinLength,
             ErrorMessage = "The field description must be a string with a minimum length of {2} and maximum length of {1}.")]
-
         public string Brand { get; init; }
 
         [Required]

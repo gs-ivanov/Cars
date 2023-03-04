@@ -1,12 +1,12 @@
 ﻿namespace Cars.Controllers
 {
-    using System.Linq;
     using Cars.Data;
     using Cars.Data.Models;
     using Cars.Infrastructure;
     using Cars.Models.Dealers;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using System.Linq;
 
     public class DealersController : Controller
     {
@@ -16,16 +16,14 @@
             => this.data = data;
 
         [Authorize]
-        public IActionResult Become()
-        {
-            return View();
-        }
+        public IActionResult Become() => View();
 
         [HttpPost]
         [Authorize]
         public IActionResult Become(BecomeDealerFormModel dealer)
         {
             var userId = this.User.GetId();
+
             var userIsAlreadyDealer = this.data
                 .Dealers
                 .Any(d => d.UserId == userId);
@@ -42,9 +40,9 @@
 
             var dealerData = new Dealer
             {
-                Name=dealer.Name,
-                PhoneNumber=dealer.PhoneNumber,
-                UserId=userId
+                Name = dealer.Name,
+                PhoneNumber = dealer.PhoneNumber,
+                UserId = userId
             };
 
             this.data.Dealers.Add(dealerData);
