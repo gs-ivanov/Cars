@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Cars.Data.Migrations
+namespace CarsRentingSystem.Data.Migrations
 {
     public partial class CarCatDialerTables : Migration
     {

@@ -1,4 +1,4 @@
-﻿namespace Cars.Services.Tracs
+﻿namespace CarsRentingSystem.Services.Cars
 {
     public class CarServiceModel
     {
@@ -12,6 +12,6 @@
 
         public int Year { get; init; }
 
-        public string Category { get; init; }
+        public string CategoryName { get; init; }
     }
 }

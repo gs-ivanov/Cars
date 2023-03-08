@@ -1,9 +1,9 @@
-﻿namespace Cars.Controllers
+﻿namespace CarsRentingSystem.Controllers
 {
-    using Cars.Data;
-    using Cars.Models;
-    using Cars.Models.Home;
-    using Cars.Services.Statistics;
+    using CarsRentingSystem.Data;
+    using CarsRentingSystem.Models;
+    using CarsRentingSystem.Models.Home;
+    using CarsRentingSystem.Services.Statistics;
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
     using System.Linq;

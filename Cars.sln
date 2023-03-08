@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cars", "Cars\Cars.csproj", "{8031130D-887E-4BA6-9F33-9643308F33C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsRentingSystem", "Cars\CarsRentingSystem.csproj", "{8031130D-887E-4BA6-9F33-9643308F33C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{965EB1D7-B9A8-473F-8A0D-5D2C8B28D69A}"
 	ProjectSection(SolutionItems) = preProject

@@ -1,6 +1,6 @@
 using System;
 
-namespace Cars.Models
+namespace CarsRentingSystem.Models
 {
     public class ErrorViewModel
     {

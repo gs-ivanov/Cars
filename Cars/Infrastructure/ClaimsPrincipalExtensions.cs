@@ -1,4 +1,4 @@
-﻿namespace Cars.Infrastructure
+﻿namespace CarsRentingSystem.Infrastructure
 {
     using System.Security.Claims;
     public static class ClaimsPrincipalExtensions

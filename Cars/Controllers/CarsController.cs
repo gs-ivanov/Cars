@@ -1,14 +1,15 @@
-﻿namespace Cars.Controllers
+﻿namespace CarsRentingSystem.Controllers
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cars.Data;
-    using Cars.Data.Models;
-    using Cars.Infrastructure;
-    using Cars.Models.Cars;
-    using Cars.Services.Tracs;
+    using CarsRentingSystem.Data;
+    using CarsRentingSystem.Infrastructure;
+    using CarsRentingSystem.Models.Cars;
+    using CarsRentingSystem.Services.Cars;
+    using CarsRentingSystemData.Models;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using System.Collections.Generic;
+
+    using System.Linq;
 
     public class CarsController : Controller
     {
@@ -16,7 +17,7 @@
         private readonly CarRentDbContext data;
         public CarsController(CarRentDbContext data, ICarService cars)
         {
-            this.cars=cars;
+            this.cars = cars;
             this.data = data;
         }
 
@@ -46,7 +47,7 @@
                 return RedirectToAction(nameof(DealersController.Become), "Dealers");
             }
 
-            return View(new AddCarFormModel
+            return View(new CarFormModel
             {
                 Categories = this.GetCarCategories()
             });
@@ -55,7 +56,7 @@
 
         [HttpPost]
         [Authorize]
-        public IActionResult Add(AddCarFormModel car)
+        public IActionResult Add(CarFormModel car)
         {
             var dealerId = this.data
                 .Dealers

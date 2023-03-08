@@ -1,14 +1,15 @@
-﻿namespace Cars.Models.Cars
+﻿namespace CarsRentingSystem.Models.Cars
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    using global::Cars.Services.Tracs;
+    using global::CarsRentingSystem.Services.Cars;
 
     public class AllCarsQueryModel
     {
         public static int CarsPerPage = 3;
 
         public string Brand { get; init; }
+
 
         [Display(Name = "Search by text")]
         public string SearchTerm { get; init; }

@@ -1,7 +1,7 @@
-﻿namespace Cars.Services.Statistics
+﻿namespace CarsRentingSystem.Services.Statistics
 {
     using System.Linq;
-    using Cars.Data;
+    using CarsRentingSystem.Data;
 
     public class StatisticsService : IStatisticsService
     {

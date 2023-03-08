@@ -1,6 +1,6 @@
-﻿namespace Cars.Data.Models
+﻿namespace CarsRentingSystem.Data.Models
 {
-    using Microsoft.EntityFrameworkCore;
+    using CarsRentingSystemData.Models;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 

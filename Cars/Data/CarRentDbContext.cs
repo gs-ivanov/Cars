@@ -1,9 +1,10 @@
-﻿namespace Cars.Data
+﻿namespace CarsRentingSystem.Data
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using Cars.Data.Models;
+    using CarsRentingSystem.Data.Models;
     using Microsoft.AspNetCore.Identity;
+    using CarsRentingSystemData.Models;
 
     public class CarRentDbContext : IdentityDbContext
     {

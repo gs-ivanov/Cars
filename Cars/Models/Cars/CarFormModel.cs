@@ -1,16 +1,15 @@
-﻿namespace Cars.Models.Cars
+﻿namespace CarsRentingSystem.Models.Cars
 {
+    using CarsRentingSystem.Services.Cars;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static Data.DataConstants.Car;
 
-    public class AddCarFormModel
+    public class CarFormModel
     {
         [Required]
-        [StringLength(BrandMaxLength,
-            MinimumLength = BrandMinLength,
-            ErrorMessage = "The field description must be a string with a minimum length of {2} and maximum length of {1}.")]
+        [StringLength(BrandMaxLength, MinimumLength = BrandMinLength)]
         public string Brand { get; init; }
 
         [Required]
@@ -35,6 +34,6 @@
         [Display(Name = "Category")]
         public int CategoryId { get; init; }
 
-        public IEnumerable<CarCategoryViewModel> Categories { get; set; }
+        public IEnumerable<CarCategoryServiceModel> Categories { get; set; }
     }
 }

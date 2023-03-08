@@ -1,11 +1,11 @@
-﻿namespace Cars.Infrastructure
+﻿namespace CarsRentingSystem.Infrastructure
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using System.Linq;
-    using Cars.Data;
-    using Cars.Data.Models;
+    using CarsRentingSystem.Data;
+    using CarsRentingSystem.Data.Models;
 
     public static class ApplicationBuilderExtensions
     {

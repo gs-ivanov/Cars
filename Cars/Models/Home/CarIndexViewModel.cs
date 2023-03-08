@@ -1,4 +1,4 @@
-﻿namespace Cars.Models.Home
+﻿namespace CarsRentingSystem.Models.Home
 {
     public class CarIndexViewModel
     {

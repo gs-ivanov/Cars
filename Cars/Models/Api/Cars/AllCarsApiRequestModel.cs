@@ -1,6 +1,6 @@
-﻿using Cars.Models.Cars;
+﻿using CarsRentingSystem.Models.Cars;
 
-namespace Cars.Models.Api.Cars
+namespace CarsRentingSystem.Models.Api.Cars
 {
     // /api/cars?carsPerPage=5
     public class AllCarsApiRequestModel

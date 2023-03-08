@@ -1,8 +1,9 @@
-﻿namespace Cars.Data.Models
+﻿namespace CarsRentingSystemData.Models
 {
+    using CarsRentingSystem.Data.Models;
     using System.ComponentModel.DataAnnotations;
 
-    using static DataConstants.Car;
+    using static CarsRentingSystem.Data.DataConstants.Car;
 
     public class Car
     {

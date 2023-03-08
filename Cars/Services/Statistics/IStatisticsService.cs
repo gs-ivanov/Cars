@@ -1,4 +1,4 @@
-﻿namespace Cars.Services.Statistics
+﻿namespace CarsRentingSystem.Services.Statistics
 {
     public interface IStatisticsService
     {

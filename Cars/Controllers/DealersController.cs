@@ -1,9 +1,9 @@
-﻿namespace Cars.Controllers
+﻿namespace CarsRentingSystem.Controllers
 {
-    using Cars.Data;
-    using Cars.Data.Models;
-    using Cars.Infrastructure;
-    using Cars.Models.Dealers;
+    using CarsRentingSystem.Data;
+    using CarsRentingSystem.Data.Models;
+    using CarsRentingSystem.Infrastructure;
+    using CarsRentingSystem.Models.Dealers;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System.Linq;

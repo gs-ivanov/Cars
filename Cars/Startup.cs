@@ -7,10 +7,10 @@ namespace Wolf
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Cars.Data;
-    using Cars.Infrastructure;
-    using Cars.Services.Statistics;
-    using Cars.Services.Tracs;
+    using CarsRentingSystem.Data;
+    using CarsRentingSystem.Infrastructure;
+    using CarsRentingSystem.Services.Statistics;
+    using CarsRentingSystem.Services.Cars;
 
     public class Startup
     {

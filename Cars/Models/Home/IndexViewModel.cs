@@ -1,4 +1,4 @@
-﻿namespace Cars.Models.Home
+﻿namespace CarsRentingSystem.Models.Home
 {
     using System.Collections.Generic;
     public class IndexViewModel

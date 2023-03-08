@@ -1,6 +1,6 @@
-﻿namespace Cars.Controllers.API
+﻿namespace CarsRentingSystem.Controllers.API
 {
-    using Cars.Services.Statistics;
+    using CarsRentingSystem.Services.Statistics;
     using Microsoft.AspNetCore.Mvc;
 
     [ApiController]
