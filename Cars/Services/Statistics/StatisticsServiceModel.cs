@@ -1,4 +1,4 @@
-﻿namespace CarsRentingSystem.Services.Statistics
+﻿namespace CarRentingSystem.Services.Statistics
 {
     public class StatisticsServiceModel
     {

@@ -1,12 +1,12 @@
-﻿namespace CarsRentingSystem.Models.Cars
+﻿namespace CarRentingSystem.Models.Cars
 {
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    using global::CarsRentingSystem.Services.Cars;
+    using global::CarRentingSystem.Services.Cars;
 
     public class AllCarsQueryModel
     {
-        public static int CarsPerPage = 3;
+        public const int CarsPerPage = 3;
 
         public string Brand { get; init; }
 

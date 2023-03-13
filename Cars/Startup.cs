@@ -1,16 +1,20 @@
 namespace Wolf
 {
+    using CarRentingSystem.Data;
+    using CarRentingSystem.Data.Models;
+    using CarRentingSystem.Infrastructure;
+    using CarRentingSystem.Services.Cars;
+    using CarRentingSystem.Services.Dealers;
+    using CarRentingSystem.Services.Statistics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using CarsRentingSystem.Data;
-    using CarsRentingSystem.Infrastructure;
-    using CarsRentingSystem.Services.Statistics;
-    using CarsRentingSystem.Services.Cars;
+
 
     public class Startup
     {
@@ -22,26 +26,30 @@ namespace Wolf
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<CarRentDbContext>(options => options
+                .AddDbContext<CarRentingDbContext>(options => options
                 .UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services
-                .AddDefaultIdentity<IdentityUser>(options =>
+                .AddDefaultIdentity<User>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
-                .AddEntityFrameworkStores<CarRentDbContext>();
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<CarRentingDbContext>();
 
-            services
-               .AddControllersWithViews();
+            services.AddControllersWithViews(options=>
+            {
+                options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+            });
 
-            services.AddTransient<IStatisticsService, StatisticsService>();
             services.AddTransient<ICarService, CarService>();
+            services.AddTransient<IDealerService, DealerService>();
+            services.AddTransient<IStatisticsService, StatisticsService>();
 
         }
 
@@ -60,12 +68,13 @@ namespace Wolf
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
+            app
+                .UseHttpsRedirection()
+                .UseStaticFiles()
+                .UseRouting()
+                .UseAuthentication()
+                .UseAuthorization()
+                .UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();

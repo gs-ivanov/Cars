@@ -1,14 +1,12 @@
-﻿namespace CarsRentingSystem.Data
+﻿namespace CarRentingSystem.Data
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using CarsRentingSystem.Data.Models;
-    using Microsoft.AspNetCore.Identity;
-    using CarsRentingSystemData.Models;
+    using CarRentingSystem.Data.Models;
 
-    public class CarRentDbContext : IdentityDbContext
+    public class CarRentingDbContext : IdentityDbContext<User>
     {
-        public CarRentDbContext(DbContextOptions<CarRentDbContext> options)
+        public CarRentingDbContext(DbContextOptions<CarRentingDbContext> options)
             : base(options)
         {
         }
@@ -37,7 +35,7 @@
 
             builder
                 .Entity<Dealer>()
-                .HasOne<IdentityUser>()
+                .HasOne<User>()
                 .WithOne()                   //.WithOne<Dealer>()   
                 .HasForeignKey<Dealer>(d => d.UserId)
                 .OnDelete(DeleteBehavior.Restrict);

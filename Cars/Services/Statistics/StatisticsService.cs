@@ -1,13 +1,13 @@
-﻿namespace CarsRentingSystem.Services.Statistics
+﻿namespace CarRentingSystem.Services.Statistics
 {
     using System.Linq;
-    using CarsRentingSystem.Data;
+    using CarRentingSystem.Data;
 
     public class StatisticsService : IStatisticsService
     {
-        private readonly CarRentDbContext data;
+        private readonly CarRentingDbContext data;
 
-        public StatisticsService(CarRentDbContext data)
+        public StatisticsService(CarRentingDbContext data)
             =>this.data = data;
 
         public StatisticsServiceModel Total()

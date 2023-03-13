@@ -1,6 +1,6 @@
-﻿namespace CarsRentingSystem.Models.Cars
+﻿namespace CarRentingSystem.Models.Cars
 {
-    using CarsRentingSystem.Services.Cars;
+    using CarRentingSystem.Services.Cars;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 

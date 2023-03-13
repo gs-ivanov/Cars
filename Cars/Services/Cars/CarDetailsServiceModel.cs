@@ -1,4 +1,4 @@
-﻿namespace CarsRentingSystem.Services.Cars
+﻿namespace CarRentingSystem.Services.Cars
 {
     public class CarDetailsServiceModel: CarServiceModel
     {

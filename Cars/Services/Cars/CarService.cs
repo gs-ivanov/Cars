@@ -1,16 +1,16 @@
-﻿namespace CarsRentingSystem.Services.Cars
+﻿namespace CarRentingSystem.Services.Cars
 {
-    using CarsRentingSystem.Data;
-    using CarsRentingSystem.Models;
-    using CarsRentingSystemData.Models;
+    using CarRentingSystem.Data;
+    using CarRentingSystem.Models;
+    using CarRentingSystem.Data.Models;
     using System.Collections.Generic;
     using System.Linq;
 
     public class CarService : ICarService
     {
-        private readonly CarRentDbContext data;
+        private readonly CarRentingDbContext data;
 
-        public CarService(CarRentDbContext data)
+        public CarService(CarRentingDbContext data)
             => this.data = data;
 
         public CarQueryServiceModel All(
@@ -60,10 +60,10 @@
             };
         }
 
-        public CarDetailsServiceModel Details(int carId)
+        public CarDetailsServiceModel Details(int id)
             => this.data
             .Cars
-            .Where(c => c.Id == carId)
+            .Where(c => c.Id == id)
             .Select(c => new CarDetailsServiceModel
             {
                 Id = c.Id,
@@ -120,7 +120,7 @@
         }
 
         public IEnumerable<CarServiceModel> ByUser(string userId)
-            => GetCars(this.data
+            => GetCars(this.data 
                 .Cars
                 .Where(c => c.Dealer.UserId == userId));
 

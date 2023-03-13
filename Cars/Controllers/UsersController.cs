@@ -1,4 +1,4 @@
-﻿namespace CarsRentingSystem.Controllers
+﻿namespace CarRentingSystem.ControllersIdentityUser
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;

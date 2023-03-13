@@ -1,9 +1,9 @@
-﻿namespace CarsRentingSystem.Controllers
+﻿namespace CarRentingSystem.Controllers
 {
-    using CarsRentingSystem.Data;
-    using CarsRentingSystem.Models;
-    using CarsRentingSystem.Models.Home;
-    using CarsRentingSystem.Services.Statistics;
+    using CarRentingSystem.Data;
+    using CarRentingSystem.Models;
+    using CarRentingSystem.Models.Home;
+    using CarRentingSystem.Services.Statistics;
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
     using System.Linq;
@@ -12,11 +12,11 @@
     public class HomeController : Controller
     {
         private readonly IStatisticsService statistics;
-        private readonly CarRentDbContext data;
+        private readonly CarRentingDbContext data;
 
 
         public HomeController(
-            CarRentDbContext data,
+            CarRentingDbContext data,
             IStatisticsService statistics
             )
         {

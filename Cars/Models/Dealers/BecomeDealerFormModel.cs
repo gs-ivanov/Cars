@@ -1,4 +1,4 @@
-﻿namespace CarsRentingSystem.Models.Dealers
+﻿namespace CarRentingSystem.Models.Dealers
 {
     using System.ComponentModel.DataAnnotations;
 
