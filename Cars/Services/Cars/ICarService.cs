@@ -1,8 +1,8 @@
 ﻿namespace CarRentingSystem.Services.Cars
 {
+    using System.Collections.Generic;
     using CarRentingSystem.Models;
     using CarRentingSystem.Services.Cars.Models;
-    using System.Collections.Generic;
 
     public interface ICarService
     {
@@ -12,6 +12,8 @@
             CarSorting sorting,
             int currentPage,
             int carsPerPage);
+
+        IEnumerable<LatestCarServiceModel> Latest();
 
         CarDetailsServiceModel Details(int carId);
 

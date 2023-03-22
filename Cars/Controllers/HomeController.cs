@@ -1,62 +1,48 @@
 ﻿namespace CarRentingSystem.Controllers
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-    using CarRentingSystem.Data;
-    using CarRentingSystem.Models;
-    using CarRentingSystem.Models.Home;
-    using CarRentingSystem.Services.Statistics;
+    using CarRentingSystem.Services.Cars;
+    using CarRentingSystem.Services.Cars.Models;
     using Microsoft.AspNetCore.Mvc;
-    using System.Diagnostics;
+    using Microsoft.Extensions.Caching.Memory;
 
 
     public class HomeController : Controller
     {
-        private readonly IStatisticsService statistics;
-        private readonly IConfigurationProvider mapper;
-        private readonly CarRentingDbContext data;
+        private readonly ICarService cars;
+        private readonly IMemoryCache cache;
 
 
         public HomeController(
-            CarRentingDbContext data,
-            IMapper mapper,
-            IStatisticsService statistics
+            ICarService cars,
+            IMemoryCache cache
             )
         {
-            this.data = data;
-            this.mapper = mapper.ConfigurationProvider;
-            this.statistics = statistics;
+            this.cars = cars;
+            this.cache = cache;
         }
 
         public IActionResult Index()
         {
-            var cars = this.data
-                .Cars
-                .OrderByDescending(c => c.Id)
-                .ProjectTo<CarIndexViewModel>(this.mapper)
-                //.Select(c => new CarIndexViewModel
-                //{
-                //    Id = c.Id,
-                //    Brand = c.Brand,
-                //    Model = c.Model,
-                //    Year = c.Year,
-                //    ImageUrl = c.ImageUrl
-                //})
-                .Take(3)
-               .ToList();
+            const string latestCarsCachKey = "LatestCarsCachKey";
 
-            var totalStatistics = this.statistics.Total();
+            var latestCars = this.cache.Get<List<LatestCarServiceModel>>(latestCarsCachKey);
 
-            return View(new IndexViewModel
+            if (latestCars == null)
             {
-                TotalCars = totalStatistics.TotalCars,
-                TotalUsers = totalStatistics.TotalUsers,
-                Cars = cars
-            }); 
+                latestCars = this.cars
+                    .Latest()
+                    .ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(15));
+            }
+
+            return View(latestCars);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        public IActionResult Error() => View();
     }
 }
