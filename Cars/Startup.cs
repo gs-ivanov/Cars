@@ -15,7 +15,6 @@ namespace Wolf
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
 
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -42,6 +41,8 @@ namespace Wolf
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CarRentingDbContext>();
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllersWithViews(options=>
             {
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
@@ -50,7 +51,6 @@ namespace Wolf
             services.AddTransient<ICarService, CarService>();
             services.AddTransient<IDealerService, DealerService>();
             services.AddTransient<IStatisticsService, StatisticsService>();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -76,6 +76,7 @@ namespace Wolf
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultAreaRoute();
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
