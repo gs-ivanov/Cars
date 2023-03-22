@@ -1,23 +1,23 @@
 ﻿namespace CarRentingSystem.Services.Cars
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using CarRentingSystem.Data;
     using CarRentingSystem.Data.Models;
     using CarRentingSystem.Models;
     using CarRentingSystem.Services.Cars.Models;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public class CarService : ICarService
     {
         private readonly CarRentingDbContext data;
         private readonly IConfigurationProvider mapper;
 
-        public CarService(CarRentingDbContext data, IConfigurationProvider mapper)
+        public CarService(CarRentingDbContext data, IMapper mapper)
         {
             this.data = data;
-            this.mapper = mapper;
+            this.mapper = mapper.ConfigurationProvider;
         }
 
         public CarQueryServiceModel All(
